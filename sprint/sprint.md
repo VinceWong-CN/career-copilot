@@ -9,7 +9,7 @@ Resume → JD → Analysis → Tailored Resume → Interview Package
 ## Current Status
 
 ### In Progress
-- Task 001 project setup
+- (none)
 
 ### Todo
 - Task 002 resume upload
@@ -23,7 +23,7 @@ Resume → JD → Analysis → Tailored Resume → Interview Package
 - Task 010 polish
 
 ### Done
-- none
+- Task 001 project setup
 
 ---
 

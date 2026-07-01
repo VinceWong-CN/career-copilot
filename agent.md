@@ -17,7 +17,9 @@
 3. 当前对应的 Task 文件（tasks/xxx.md）
 4. 相关产品文档（如有需要）
 
-只有充分理解当前开发背景后，才能开始编码。
+阅读完成后，必须输出当前 Task 的开发计划（Plan），经确认后再开始编码。
+
+如果产品需求存在歧义，必须先向 Product Owner 提问澄清，不得自行假设。
 
 ---
 
@@ -54,6 +56,20 @@
 - logs/DECISION_LOG.md
 
 如果开发过程中积累了经验或踩坑，则更新：
+
+### Self Review
+
+上述步骤完成后，必须进行自我 Review（Self Review）：
+
+- 检查所有改动是否严格在 Task 范围内
+- 检查是否有违反 AGENTS.md 的情况
+- 检查代码质量、中文文案、命名规范
+- 检查是否有遗漏的文档更新
+- 生成 Recommended Commit Message
+
+Self Review 完成后，等待 Product Owner Review。
+
+未经 Product Owner 确认，不得执行 Git Commit。
 
 - logs/LESSONS_LEARNED.md
 
@@ -103,6 +119,7 @@
 - 为未来需求进行过度设计（Over Engineering）
 - 引入未经讨论的新技术方案
 
+- 对不明确的产品需求自行假设
 任何超出当前 Task 范围的内容，应记录到 Backlog，而不是直接开发。
 
 ---
@@ -258,17 +275,20 @@ Offer Ready
 Resume → JD → Analysis → Resume → Interview
 
 全流程的产品。
-
-# 产品规范优先级（Specification Hierarchy）
-
-如果多个文档存在冲突，应按照以下优先级执行：
-
-1. AGENTS.md（开发规范）
-2. 当前 Task（tasks/）
-3. PROJECT_STATE.md
-4. sprint.md
-5. docs/（产品设计文档）
-
 任何与当前 Task 无关的设计，不应影响当前开发。
 
 产品文档只有在 Product Owner 确认后才能修改。
+
+
+
+完成每个 Task 后：
+
+1. 更新相关文档
+2. 运行测试（如适用）
+3. 生成 Recommended Commit Message
+4. 进行 Self Review
+5. 等待 Product Owner Review
+6. 经确认后再执行 Git Commit
+
+未经 Product Owner 确认，不得主动提交代码到主分支。
+

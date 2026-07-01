@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --primary: #0f172a;
+    --primary-foreground: #f8fafc;
+    --muted-foreground: #6b7280;
+    --border: #e5e7eb;
+    --input: #e5e7eb;
+    --accent: #f4f4f5;
+    --accent-foreground: #18181b;
+    --ring: #0f172a;
+  }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}

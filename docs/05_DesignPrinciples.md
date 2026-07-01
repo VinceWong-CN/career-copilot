@@ -207,3 +207,13 @@ The system exists to help professionals express who they truly are, rather than 
 Technology may evolve.
 
 The principles should not.
+ 
+ ---
+ 
+ ## 3.11 Language
+ 
+ MVP 第一阶段产品界面统一使用中文。
+ 
+ 品牌名称保留英文：Career Copilot。
+ 
+ 代码、变量、API 使用英文。

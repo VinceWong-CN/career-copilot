@@ -49,9 +49,9 @@ Vercel
 
 ## Current Task
 
-Task 001
-
-Project Setup
+ Task 002
+ 
+ Resume Upload
 
 ---
 
