@@ -151,6 +151,5 @@ This user flow is designed to evolve into:
 - Interview Copilot (real-time Q&A assistant)
 - Career Strategy System (long-term planning)
 - Skill Evolution Tracking System
-
 ---
 

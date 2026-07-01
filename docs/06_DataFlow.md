@@ -1,189 +1,244 @@
 # 06_DataFlow.md
 
-# Career Copilot —— 数据流设计（Data Flow Architecture）
+# Career Copilot — Data Flow
 
 ---
 
-## 1. 概述
+# 1. Purpose
 
-本文档定义 Career Copilot 系统中“数据如何流动与被处理”。
+This document defines how information flows through Career Copilot.
 
-重点不是数据结构，而是：
+Unlike the workflow, which describes the system's reasoning capabilities, the data flow describes how information is progressively transformed into career assets.
 
-> 数据在 Multi-Agent 系统中的转换路径（Transformation Pipeline）
+Each stage produces a standardized artifact that becomes the input for the next stage.
 
-系统本质是一个：
-
-> Structured Data Reasoning Pipeline（结构化数据推理管道）
+The purpose of this document is to ensure that every piece of information is traceable, reusable, and explainable throughout the system.
 
 ---
 
-## 2. 核心设计原则
+# 2. Design Philosophy
 
-系统数据流必须遵守：
+Career Copilot does not repeatedly rewrite resumes.
 
-- 数据必须结构化流动（Structured Flow）
-- 数据不得跨越 Agent 跳跃处理
-- 每一步输出必须可被下一步消费
-- 不允许“直接生成最终结果”
+Instead, it progressively transforms information through multiple reasoning stages.
 
----
+Each stage creates a new artifact while preserving all previous evidence.
 
-## 3. 输入层（Input Layer）
-
-系统接收两个核心输入：
-
-### 3.1 Master Resume（主简历）
-
-用户真实职业经历来源：
-
-- 工作经历
-- 项目经验
-- 教育背景
-- 技能列表
-
-特点：
-- 原始数据
-- 未结构化
-- 真实唯一来源（Source of Truth）
+Information should evolve rather than be recreated.
 
 ---
 
-### 3.2 Job Description（JD）
-
-目标岗位描述：
-
-- 岗位要求
-- 技能需求
-- 职责描述
-- 隐性信号
-
-特点：
-- 非结构化文本
-- 需要语义解析
-
----
-
-## 4. 处理层（Processing Pipeline）
-
-系统通过多个 Agent 顺序处理数据：
-
----
-
-### Step 1：Candidate Understanding Agent
-
-输入：
-- Master Resume
-
-输出：
-- Structured Experience Graph
-
-处理内容：
-- 提取经历结构
-- 标准化角色与职责
-- 去除表达噪音
-
----
-
-### Step 2：Job Understanding Agent
-
-输入：
-- Job Description
-
-输出：
-- Job Requirement Graph
-
-处理内容：
-- 提取 must-have skills
-- 提取 nice-to-have skills
-- 提取隐性能力要求
-
----
-
-### Step 3：Skill Mapping Agent
-
-输入：
-- Structured Experience Graph
-- Job Requirement Graph
-
-输出：
-- Skill Mapping Graph
-
-处理内容：
-- 建立 experience → skill 映射
-- 识别 transferable skills
-- 计算 confidence score
-
----
-
-### Step 4：Gap Analysis Agent
-
-输入：
-- Skill Mapping Graph
-- Job Requirement Graph
-
-输出：
-- Gap Analysis Report
-
-处理内容：
-- 找出 missing skills
-- 找出 weak signals
-- 识别风险点
-
----
-
-### Step 5：Narrative Agent
-
-输入：
-- Skill Mapping Graph
-- Gap Analysis Report
-
-输出：
-- Resume Narrative Output
-
-处理内容：
-- 重写表达（不改事实）
-- 优化职业叙事结构
-- 生成面试导向表达
-
----
-
-## 5. 输出层（Output Layer）
-
-系统最终输出包含：
-
-### 5.1 Resume Output
-
-- 优化后的简历表达
-- bullet points 重构版本
-
----
-
-### 5.2 Interview Preparation Output
-
-- 可能面试问题
-- 基于经历的回答建议
-- 弱点补强建议
-
----
-
-## 6. 数据流总图（核心）
+# 3. Data Flow Overview
 
 ```text
 Master Resume
-      ↓
-Candidate Understanding Agent
-      ↓
-Structured Experience Graph
-      ↓
-Skill Mapping Agent
-      ↓
-Skill Graph
-      ↓
-Job Requirement Graph
-      ↓
-Gap Analysis Agent
-      ↓
-Narrative Agent
-      ↓
-Final Resume + Interview Output
+        │
+        ▼
+Candidate Profile
+        │
+        ▼
+Opportunity Profile
+        │
+        ▼
+Capability Profile
+        │
+        ▼
+Gap Report
+        │
+        ▼
+Target Narrative
+        │
+        ▼
+Tailored Resume
+        │
+        ▼
+Interview Package
+```
+
+Each artifact represents a new understanding of the candidate rather than a replacement of previous information.
+
+---
+
+# 4. Input Artifact
+
+## Master Resume
+
+The Master Resume is the primary input to the system.
+
+It represents the candidate's authentic professional history.
+
+The Master Resume is never automatically rewritten.
+
+It serves as the foundation for all future reasoning.
+
+---
+
+# 5. Intermediate Artifacts
+
+## Candidate Profile
+
+Purpose:
+
+Create a structured understanding of the candidate.
+
+Contains:
+
+- Professional experience
+- Skills
+- Achievements
+- Career progression
+- Supporting evidence
+
+---
+
+## Opportunity Profile
+
+Purpose:
+
+Represent the target opportunity in a structured format.
+
+Contains:
+
+- Responsibilities
+- Required capabilities
+- Preferred qualifications
+- Industry terminology
+- Hiring priorities
+
+---
+
+## Capability Profile
+
+Purpose:
+
+Describe how the candidate's authentic capabilities relate to the opportunity.
+
+Contains:
+
+- Matching capabilities
+- Transferable skills
+- Supporting evidence
+- Confidence of alignment
+
+---
+
+## Gap Report
+
+Purpose:
+
+Identify potential risks before resume generation.
+
+Contains:
+
+- Strong matches
+- Weak matches
+- Missing capabilities
+- Interview risks
+
+Gap Report never recommends fabricating experience.
+
+---
+
+## Target Narrative
+
+Purpose:
+
+Translate authentic experience into language suitable for the target opportunity.
+
+Contains:
+
+- Reframed achievements
+- Industry terminology
+- Capability-focused storytelling
+- Language adjustments
+
+Facts remain unchanged.
+
+---
+
+# 6. Output Artifacts
+
+## Tailored Resume
+
+Purpose:
+
+Generate a resume aligned with the target opportunity while preserving authenticity.
+
+The Tailored Resume is generated from previous artifacts rather than directly rewriting the Master Resume.
+
+---
+
+## Interview Package
+
+Purpose:
+
+Prepare the candidate to explain every statement included in the Tailored Resume.
+
+May include:
+
+- Talking points
+- STAR examples
+- Potential interview questions
+- Risk reminders
+
+Interview preparation is the final artifact of the resume tailoring workflow.
+
+---
+
+# 7. Data Integrity Rules
+
+Every artifact must satisfy the following rules.
+
+## Traceability
+
+Every output must be traceable to previous artifacts.
+
+---
+
+## Evidence Preservation
+
+No evidence should be discarded during reasoning.
+
+---
+
+## Progressive Transformation
+
+Each artifact should enrich previous information rather than replace it.
+
+---
+
+## Explainability
+
+Every artifact should explain how it was produced.
+
+---
+
+## Consistency
+
+All artifacts must remain logically consistent with the Master Resume.
+
+---
+
+# 8. Future Evolution
+
+The current data flow supports resume tailoring.
+
+Future products should reuse the same artifacts whenever possible.
+
+Examples include:
+
+- LinkedIn Profile
+- Cover Letter
+- Career Strategy
+- Personal Branding
+- Networking Preparation
+
+New outputs should extend the existing artifact chain rather than introducing parallel data flows.
+
+---
+
+# 9. Key Takeaway
+
+Career Copilot transforms information through a sequence of structured artifacts.
+
+Rather than repeatedly rewriting resumes, the system progressively builds understanding, aligns capabilities, and produces career assets that remain authentic, explainable, and reusable.

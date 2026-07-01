@@ -1,151 +1,209 @@
 # 05_DesignPrinciples.md
 
-# Career Copilot — Design Principles (System Constitution)
+# Career Copilot — Design Principles
 
 ---
 
-## 1. Overview
+# 1. Purpose
 
-This document defines the non-negotiable principles that govern the entire Career Copilot system.
+This document defines the fundamental principles that govern the design of Career Copilot.
 
-All agents, workflows, and outputs MUST comply with these principles.
+These principles serve as the system's constitution.
 
-These rules override any implementation detail.
+Regardless of future changes in implementation, AI models, prompts, or architecture, these principles should remain stable.
 
----
-
-## 2. Core Philosophy
-
-Career Copilot is not a resume generator.
-
-It is a:
-
-> Career Reasoning System that transforms authentic experience into structured career narratives.
-
-All system behavior must preserve this philosophy.
+Every product decision, engineering decision, and AI behavior should align with these principles.
 
 ---
 
-## 3. Fundamental Principles
+# 2. Design Philosophy
+
+Career Copilot is not designed to rewrite resumes.
+
+It is designed to help experienced professionals translate authentic experience into industry-specific career narratives.
+
+The system prioritizes:
+
+- Authenticity over optimization
+- Reasoning over generation
+- Evidence over assumptions
+- Long-term career value over short-term keyword matching
 
 ---
 
-### 3.1 Authenticity First Principle
+# 3. Core Design Principles
 
-The system must never fabricate, exaggerate, or hallucinate user experience.
+## 3.1 Authenticity First
 
-All outputs must be grounded in the Master Resume.
+Authenticity is the foundation of the entire system.
 
----
+Career Copilot must never fabricate:
 
-### 3.2 Source of Truth Principle
-
-The Master Resume is the only authoritative source of user experience.
-
-No inferred or external information can override it.
-
----
-
-### 3.3 Language Transformation Only Principle
-
-The system may only modify:
-
-- Expression
-- Framing
-- Structure
-
-The system must NOT modify:
-
-- Facts
 - Experience
+- Responsibilities
 - Achievements
-- Reality
+- Skills
+- Results
+
+AI may improve expression, but it must never invent facts.
 
 ---
 
-### 3.4 Explainability Principle
+## 3.2 Single Source of Truth
 
-Every transformation must be explainable.
+Every recommendation must originate from a single trusted source.
 
-The system must always be able to answer:
+For the MVP, the Master Resume serves as the system's primary source of truth.
 
-- Why this skill was inferred
-- Why this mapping was chosen
-- Why this change was applied
-
-No black-box transformations are allowed.
+As the platform evolves, this responsibility may transition to a structured Career Memory without changing the underlying principle.
 
 ---
 
-### 3.5 Traceability Principle
+## 3.3 Capability Before Language
 
-All outputs must be traceable back to:
+The system must understand what the candidate is capable of before deciding how to describe it.
 
-- Master Resume
-- Job Description
-- Skill Mapping logic
+Language optimization is always the result of capability understanding.
 
-Every output must have a clear reasoning path.
+The goal is to reveal authentic strengths, not create artificial ones.
 
 ---
 
-### 3.6 No Direct Generation Principle
+## 3.4 Transferable Skills
 
-The system must NOT generate final resume outputs directly from raw input.
+Career transitions should be based on transferable capabilities rather than direct industry matching.
 
-All outputs MUST pass through:
+The system should identify:
 
-Candidate Understanding → Skill Mapping → Gap Analysis → Narrative Generation
+- Shared competencies
+- Common business problems
+- Similar responsibilities
+- Reusable professional strengths
 
----
-
-### 3.7 Interview-Driven Principle
-
-The ultimate goal is not ATS optimization.
-
-The goal is:
-
-> improving interview performance through better narrative clarity.
+Industry differences should be translated through capability, not ignored.
 
 ---
 
-### 3.8 Controlled Modification Principle
+## 3.5 Language Mapping
 
-Each iteration must:
+Career Copilot translates professional language rather than changing professional history.
 
-- Preserve at least 80% of original meaning
-- Only optimize expression and clarity
-- Avoid semantic drift
+The system may:
 
----
+- Improve clarity
+- Adapt terminology
+- Align with industry language
+- Improve readability
 
-## 4. System Safety Constraints
-
-The system must never:
-
-- Invent job experience
-- Inflate responsibility scope
-- Add unsupported skills
-- Skip reasoning agents
+The system must never alter factual information.
 
 ---
 
-## 5. Execution Rule
+## 3.6 Interview Driven
 
-If a transformation cannot be explained step-by-step:
+A tailored resume is successful only if the candidate can confidently explain every statement during an interview.
 
-> It is invalid and must not be executed.
-
----
-
-## 6. Key Insight
-
-Career Copilot is not a writing tool.
-
-It is a structured reasoning engine for career representation.
+Interview readiness is therefore part of the resume optimization process rather than a separate activity.
 
 ---
 
-## 7. Final Rule
+## 3.7 Explain Every Change
 
-> If it cannot be traced, it does not exist.
+Every modification generated by the system should have a clear explanation.
+
+Users should always understand:
+
+- What changed
+- Why it changed
+- Which evidence supports the change
+
+Transparency builds trust.
+
+---
+
+## 3.8 Human in Control
+
+The candidate always owns the final decision.
+
+Career Copilot provides recommendations, not irreversible edits.
+
+Users remain responsible for approving every important modification.
+
+---
+
+## 3.9 Progressive Enhancement
+
+The system should improve existing information step by step rather than repeatedly rebuilding everything from scratch.
+
+Each reasoning stage builds upon previous outputs.
+
+This improves consistency, maintainability, and reasoning quality.
+
+---
+
+## 3.10 Low Modification Cost
+
+The architecture should minimize unnecessary changes.
+
+Adding new features should extend the system rather than require redesigning existing workflows.
+
+The product should evolve through extension, not reconstruction.
+
+---
+
+# 4. Decision Priority
+
+When principles conflict, decisions should follow this priority order.
+
+1. Authenticity
+2. Evidence
+3. Capability Understanding
+4. User Value
+5. Language Optimization
+6. Engineering Convenience
+
+Engineering implementation should never override product principles.
+
+---
+
+# 5. Design Constraints
+
+The following constraints apply across the entire system.
+
+- Never fabricate experience.
+- Never optimize for ATS keywords alone.
+- Never rewrite history.
+- Never sacrifice authenticity for readability.
+- Never introduce unexplained modifications.
+- Never optimize resumes without considering interview readiness.
+
+These constraints are mandatory.
+
+---
+
+# 6. Future Evolution
+
+These principles are intentionally independent of implementation.
+
+Future upgrades may include:
+
+- Multi-Agent Architecture
+- Career Memory
+- LinkedIn Optimization
+- Cover Letter Generation
+- Career Strategy
+- Portfolio Storytelling
+
+New capabilities should follow the same principles instead of introducing new ones whenever possible.
+
+---
+
+# 7. Key Takeaway
+
+Career Copilot is built on reasoning, authenticity, and transparency.
+
+The system exists to help professionals express who they truly are, rather than pretending to be someone else.
+
+Technology may evolve.
+
+The principles should not.
