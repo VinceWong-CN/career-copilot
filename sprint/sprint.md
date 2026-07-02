@@ -12,10 +12,9 @@ Resume → JD → Analysis → Tailored Resume → Interview Package
 - (none)
 
 ### Todo
-- Task 002 resume upload
-- Task 003 resume parser
-- Task 004 jd input
-- Task 005 jd parser
+- Task 003 jd input
+- Task 004 jd parsing
+- Task 005 match analysis
 - Task 006 match assessment
 - Task 007 resume tailoring
 - Task 008 interview package
@@ -24,6 +23,7 @@ Resume → JD → Analysis → Tailored Resume → Interview Package
 
 ### Done
 - Task 001 project setup
+ - Task 002 resume upload
 
 ---
 
@@ -48,3 +48,6 @@ User can:
 ## Notes
 
 This sprint focuses on product flow validation, not AI accuracy.
+ - Task 003 jd input
+ - Task 004 jd parsing
+ - Task 005 match analysis

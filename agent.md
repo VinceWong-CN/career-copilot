@@ -90,6 +90,12 @@ Self Review 完成后，等待 Product Owner Review。
 
 禁止删除历史 Bug。
 
+如果 Bug 能沉淀长期经验，同时更新：
+
+- logs/LESSONS_LEARNED.md
+
+不得仅更新 LESSONS_LEARNED.md 而遗漏 BUG_LOG.md。
+
 ---
 
 # 五、开发日志（Development Log）
@@ -289,6 +295,101 @@ Resume → JD → Analysis → Resume → Interview
 4. 进行 Self Review
 5. 等待 Product Owner Review
 6. 经确认后再执行 Git Commit
+未经批准：
+
+- 不得执行 git commit
+- 不得执行 git push
 
 未经 Product Owner 确认，不得主动提交代码到主分支。
 
+
+---
+
+# 十三、Development Workflow（开发工作流）
+
+每个 Task 必须严格遵循以下流程：
+
+1. **阅读项目文档**
+   - AGENTS.md
+   - PROJECT_STATE.md
+   - sprint.md
+   - 当前 Task
+
+2. **输出 Implementation Plan**
+
+3. **等待 Product Owner 批准**
+
+4. **开始 Coding**
+
+5. **完成 Self Review**
+
+6. **如发现 Bug**
+   - 更新 logs/BUG_LOG.md
+   - 如能沉淀长期经验，同时更新 logs/LESSONS_LEARNED.md
+
+7. **输出 Technical Debt**（如无则写 None）
+
+8. **执行 pnpm build**，必须零错误、零警告
+
+9. **执行 pnpm dev，自查所有本 Task 涉及页面**
+  必须确认：
+  - 页面可正常访问
+  - UI 正常显示
+  - 功能符合 Acceptance Criteria
+  - Browser Console 无报错
+  - Network 请求正常
+  - 无运行时错误
+
+10. **输出本地可访问地址**，例如：http://localhost:3000
+  如端口被占用，需明确说明实际端口
+
+11. **输出交付物**
+    - 修改文件列表
+    - Root Cause（如有）
+    - Manual Verification
+    - Technical Debt
+    - Recommended Commit Message
+
+12. **等待 Product Review**
+
+**未经 Product Owner 批准：**
+- 不得 git commit
+- 不得 git push
+
+---
+
+# 十四、Development Completion（完成定义）
+
+Coding 完成不代表 Task 完成。
+
+只有满足以下全部条件，Task 才视为完成：
+
+- pnpm build 成功（零错误、零警告）
+- pnpm dev 正常运行
+- 页面可实际访问
+- Product 可进行人工验收
+- 所有文档已更新
+- Self Review 完成
+
+否则不得进入 Commit Review。
+
+---
+
+## 十五、开发协助（Developer Handoff）
+
+每次执行 pnpm dev 后，必须主动提供：
+
+- **测试地址**：实际可访问的 URL（含端口号）
+- **建议测试页面**：本 Task 涉及的页面路由
+- **建议验证功能**：Product Owner 需人工验收的功能点
+
+示例：
+
+```
+测试地址：http://localhost:3000/master-resume
+建议验证：
+  - 上传 DOCX
+  - 上传 PDF
+  - Preview
+  - Continue Button
+```
