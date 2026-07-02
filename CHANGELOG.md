@@ -3,6 +3,14 @@
  ## Sprint 1
  
  
+ 
+ ### 2026-07-02 — Task 003 JD Input
+ 
+ - 创建 JobDescriptionContext，全局共享 jobDescription
+ - 改造 /job 页面：多行 Textarea → 实时字符计数 → Continue 按钮 → /generate
+ - 更新 RootLayout Provider 嵌套结构
+ - 通过 pnpm build 零错误验证
+ 
  ### 2026-07-02 — Task 002 Resume Upload
  
  - 创建 /api/parse-resume API 路由，支持 PDF 和 DOCX 解析

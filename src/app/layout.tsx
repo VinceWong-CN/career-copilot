@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { MasterResumeProvider } from "@/features/master-resume/master-resume-context";
+import { JobDescriptionProvider } from "@/features/jd/jd-context";
 
 export const metadata: Metadata = {
   title: "Career Copilot",
@@ -18,11 +19,13 @@ export default function RootLayout({
     <html lang="zh-CN">
       <body className="flex min-h-screen flex-col">
         <MasterResumeProvider>
-          <Header />
-          <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-8">
-            {children}
-          </main>
-          <Footer />
+          <JobDescriptionProvider>
+            <Header />
+            <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-8">
+              {children}
+            </main>
+            <Footer />
+          </JobDescriptionProvider>
         </MasterResumeProvider>
       </body>
     </html>

@@ -9,10 +9,9 @@ Resume → JD → Analysis → Tailored Resume → Interview Package
 ## Current Status
 
 ### In Progress
-- (none)
+ - Task 003 jd input
 
 ### Todo
-- Task 003 jd input
 - Task 004 jd parsing
 - Task 005 match analysis
 - Task 006 match assessment
@@ -23,7 +22,8 @@ Resume → JD → Analysis → Tailored Resume → Interview Package
 
 ### Done
 - Task 001 project setup
- - Task 002 resume upload
+- Task 002 resume upload
+ - Task 003 jd input
 
 ---
 

@@ -49,9 +49,9 @@ Vercel
 
 ## Current Task
 
-  Task 003
+ Task 004
  
-  JD Input
+  JD Parsing
 
 ---
 
@@ -64,10 +64,11 @@ Keep implementation simple.
 Prioritize working software over perfect architecture.
  
  ## Current MVP Progress
- 
- - Task 001 — Project Setup ✅
- - Task 002 — Resume Upload ✅
- - Task 003 — JD Input ⏳
+
+- Task 001 — Project Setup ✅
+- Task 002 — Resume Upload ✅
+- Task 003 — JD Input ⏳
+ - Task 003 — JD Input ✅
  - Task 004 — JD Parsing ⏳
  - Task 005 — Match Analysis ⏳
  
