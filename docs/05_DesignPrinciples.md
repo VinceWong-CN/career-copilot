@@ -217,3 +217,22 @@ The principles should not.
  品牌名称保留英文：Career Copilot。
  
  代码、变量、API 使用英文。
+
+### Development Debug Principle
+
+所有开发阶段的调试信息（Prompt、Token、耗时、Raw JSON 等）必须通过统一 Debug Panel 展示。
+
+Debug Panel 必须通过环境变量控制：
+
+- Development：显示
+- Production：自动隐藏
+
+不得影响业务 UI，不得删除业务代码。
+
+### Input First Principle
+
+所有用户输入应优先降低输入成本。
+
+对于同一种信息，应支持多种输入方式（文本、图片等），但最终统一转换为可编辑文本，再进入 AI 流程。
+
+AI 永远处理文本，而不是原始文件。

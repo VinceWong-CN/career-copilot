@@ -9,21 +9,21 @@ Resume → JD → Analysis → Tailored Resume → Interview Package
 ## Current Status
 
 ### In Progress
- - Task 003 jd input
-
-### Todo
-- Task 004 jd parsing
-- Task 005 match analysis
-- Task 006 match assessment
-- Task 007 resume tailoring
-- Task 008 interview package
-- Task 009 result page
-- Task 010 polish
+- Task005 — Skill Mapping
 
 ### Done
-- Task 001 project setup
-- Task 002 resume upload
- - Task 003 jd input
+- Task001 — Master Resume Upload
+- Task002 — Resume Parsing & Context
+- Task003 — JD Input
+- Task004 — Match Analysis + Result UI
+
+---
+
+## Backlog
+- OCR（JD Screenshot Upload, Deferred）
+- Resume Rewrite
+- Resume Export
+- Deployment
 
 ---
 
@@ -48,6 +48,3 @@ User can:
 ## Notes
 
 This sprint focuses on product flow validation, not AI accuracy.
- - Task 003 jd input
- - Task 004 jd parsing
- - Task 005 match analysis

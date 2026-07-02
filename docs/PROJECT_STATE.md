@@ -49,9 +49,48 @@ Vercel
 
 ## Current Task
 
- Task 004
- 
-  JD Parsing
+Task005 — Skill Mapping
+
+---
+
+## Current MVP Progress
+
+✅ Task001 — Master Resume Upload
+✅ Task002 — Resume Parsing & Context
+✅ Task003 — JD Input
+✅ Task004 — Match Analysis + Result UI
+🚧 Task005 — Skill Mapping
+
+---
+
+## Deferred
+
+- OCR（JD Screenshot Upload, 代码已保留，未接入）
+
+---
+
+## Planned
+
+- Resume Rewrite
+- Resume Export
+
+---
+
+## Roadmap
+
+Master Resume
+↓
+Resume Parsing
+↓
+JD Input
+↓
+Match Analysis + Result UI
+↓
+Skill Mapping
+↓
+Resume Rewrite
+↓
+Resume Export
 
 ---
 
@@ -62,14 +101,3 @@ Do not introduce features outside MVP.
 Keep implementation simple.
 
 Prioritize working software over perfect architecture.
- 
- ## Current MVP Progress
-
-- Task 001 — Project Setup ✅
-- Task 002 — Resume Upload ✅
-- Task 003 — JD Input ⏳
- - Task 003 — JD Input ✅
- - Task 004 — JD Parsing ⏳
- - Task 005 — Match Analysis ⏳
- 
- ## Rules

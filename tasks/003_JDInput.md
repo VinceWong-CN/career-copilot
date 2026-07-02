@@ -2,133 +2,215 @@
 
 ## Goal
 
-实现目标岗位（Job Description）输入能力。
+将 /job 从占位页面升级为完整的 JD 输入页面。
 
-用户能够输入目标 JD，并进入下一步，为后续 Match Analysis 做准备。
+支持两种输入方式：
+
+1. 粘贴 JD 文本
+2. 上传 JD 图片（PNG/JPG/JPEG）
+
+所有输入最终统一为可编辑文本，并保存到 JobDescriptionContext。
 
 ---
 
 ## User Story
 
-作为一名求职者，
+作为求职者，
 
-我希望输入目标岗位 JD，
+我希望能够通过复制 JD 或上传岗位截图快速导入岗位信息，
 
-以便系统后续能够分析我与岗位的匹配程度。
+无需手动输入，
+
+并且可以在 OCR 后继续修改内容。
 
 ---
 
 ## Scope
 
-本 Task 仅实现 JD 输入能力，包括：
+### In Scope
 
-- JD 文本输入
-- JobDescriptionContext
-- Character Count
-- Continue Button
-- 页面跳转
+- JD 文本输入（Textarea）
+- JD 图片上传（PNG/JPG/JPEG）
+- 图片 OCR 提取文本
+- OCR 后自动填充 Textarea
+- 用户继续编辑
+- 实时字符统计
+- 保存 JobDescriptionContext
+- Continue 按钮
 
----
+### Out of Scope
 
-## Functional Requirements
-
-### 1. JD Input
-
-提供一个多行 Textarea。
-
-用户可以自由粘贴目标岗位 JD。
-
-支持较长文本输入。
-
----
-
-### 2. Character Count
-
-实时显示当前输入字符数。
-
-示例：
-
-字符数：1250
+- PDF JD
+- DOCX JD
+- 多图片上传
+- 拖拽上传
+- 自动分析
+- AI 匹配
+- Resume Rewrite
 
 ---
 
-### 3. JobDescriptionContext
+## Step 1
 
 新增：
 
-JobDescriptionContext
+src/app/api/parse-jd-image/route.ts
 
-用于全局保存：
+POST：
 
-- jobDescription
+接收图片
 
-供后续页面读取。
+调用 OCR（Vision Model）
+
+返回：
+
+{
+  "text": "..."
+}
 
 ---
 
-### 4. Continue Button
+## Step 2
 
-默认 Disabled。
+更新：
+
+src/features/jd/jd-context.tsx
+
+保持结构不变。
+
+OCR 结果与 Textarea 输入统一保存：
+
+jobDescription
+
+---
+
+## Step 3
+
+更新：
+
+src/app/job/page.tsx
+
+页面展示：
+
+标题
+
+目标岗位
+
+说明
+
+请输入岗位描述，或上传岗位截图自动识别。
+
+输入区域：
+
+Textarea
+
+支持长文本
+
+显示：
+
+字符数
+
+---
+
+新增：
+
+上传图片 Button
+
+支持：
+
+PNG
+
+JPG
+
+JPEG
+
+上传成功：
+
+自动调用：
+
+/api/parse-jd-image
+
+OCR 完成：
+
+自动填充 Textarea
+
+用户仍可继续编辑。
+
+---
+
+Continue Button
+
+默认 Disabled
 
 当：
 
 jobDescription.trim().length > 0
 
-时自动启用。
+Enable
 
-按钮文案：
+点击：
 
-下一步：开始分析匹配度
+保存 Context
 
-点击后跳转：
+跳转：
 
 /generate
 
 ---
 
-## UI
+## OCR Requirements
 
-页面结构：
+支持：
 
-标题：
-目标岗位
+- 招聘网站截图
+- 浏览器截图
+- 微信截图
+- 飞书截图
+- 本地图片
 
-说明：
-请输入目标岗位描述（Job Description）
+不限制来源。
 
-主体：
+OCR 输出必须进入 Textarea。
 
-- Textarea
-- Character Count
-- Continue Button
+不得直接进入 Analysis。
 
 ---
 
 ## Acceptance Criteria
 
-- 可以输入 JD
-- Character Count 实时更新
-- JobDescriptionContext 保存成功
-- Continue Button 正常启用 / 禁用
-- 成功跳转至 /generate
+- 文本输入正常
+- 图片上传正常
+- OCR 成功返回文本
+- Textarea 自动填充
+- 用户可继续编辑
+- Continue 正常跳转
 - pnpm build 零错误
-- pnpm dev 正常运行
-- 提供本地测试地址
+- pnpm dev 正常启动
+- 提供测试地址
 
 ---
 
-## Out of Scope
+## Manual Verification
 
-本 Task 不实现：
+验证：
 
-- JD 文件上传
-- JD Parsing
-- AI Analysis
-- Match Score
-- Skill Mapping
-- Resume Rewrite
-- 数据库存储
-- 登录系统
+① 手动输入 JD
+
+Continue 可正常进入 Generate。
+
+② 上传岗位截图
+
+OCR 成功。
+
+Textarea 自动填充。
+
+③ 修改 OCR 内容
+
+保存成功。
+
+④ Continue 后
+
+JobDescriptionContext 内容正确。
 
 ---
 
@@ -139,26 +221,27 @@ jobDescription.trim().length > 0
 - 修改文件列表
 - Self Review
 - Manual Verification
-- Technical Debt（如无则输出 None）
+- Technical Debt（如无输出 None）
 - pnpm build 结果
-- pnpm dev 测试地址
+- pnpm dev 结果
+- 本地测试地址
 - Recommended Commit Message
+
+如发现 Bug：
+
+更新：
+
+logs/BUG_LOG.md
+
+如形成长期经验：
+
+同步更新：
+
+logs/LESSONS_LEARNED.md
 
 等待 Product Review。
 
----
+未经批准：
 
-## Notes
-
-本 Task 仅完成 **JD Input**。
-
-不得提前开发：
-
-- JD Parsing
-- JD Analysis
-- Match Score
-- AI Workflow
-
-遵循原则：
-
-**One Task = One User Capability**
+不得 git commit。
+不得 git push。
