@@ -1,3 +1,23 @@
+### 2026-07-02 — Task005 Polish: Resume Output UX
+
+- Prompt 增加 Code Fence 约束（禁止 AI 包裹 markdown code block）
+- 替换 <pre> 为 react-markdown 渲染（Heading / List / Bold / HR 均正确渲染）
+- 优化 Resume Header 排版（姓名 → 大号加粗居中，职位 → 次级居中，联系方式 → 内联）
+- Copy 按钮增加"复制成功"浮层提示
+- 新增 stripCodeFence 容错处理（即使 AI 输出 code block 也能正常渲染）
+- 安装 react-markdown@10.1.0
+- pnpm build 零错误验证
+
+### 2026-07-02 — Task005 Resume Tailoring
+
+- 创建 Resume Tailoring Prompt（src/lib/prompts/resume-tailoring.ts）
+- 创建 /api/generate-resume API 路由，接入 DeepSeek Chat
+- 创建 /resume 页面：AI 生成 → Markdown 预览 → Copy
+- Result 页面新增「生成定制简历」按钮
+- 严格遵循 Authenticity First：仅优化表达、结构、JD 匹配度
+- 不编造任何经历、项目、技能或数据
+- 保持 Task001–Task004 完全兼容
+- pnpm build 零错误验证
  # Changelog
  
  ## Sprint 1

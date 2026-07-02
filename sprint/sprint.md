@@ -9,13 +9,14 @@ Resume → JD → Analysis → Tailored Resume → Interview Package
 ## Current Status
 
 ### In Progress
-- Task005 — Skill Mapping
+- (none)
 
 ### Done
 - Task001 — Master Resume Upload
 - Task002 — Resume Parsing & Context
 - Task003 — JD Input
 - Task004 — Match Analysis + Result UI
+- Task005 — Resume Tailoring
 
 ---
 

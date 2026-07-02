@@ -49,7 +49,9 @@ Vercel
 
 ## Current Task
 
-Task005 — Skill Mapping
+Sprint 1 Completed
+
+All MVP core tasks done. See Planned for future work.
 
 ---
 
@@ -59,7 +61,7 @@ Task005 — Skill Mapping
 ✅ Task002 — Resume Parsing & Context
 ✅ Task003 — JD Input
 ✅ Task004 — Match Analysis + Result UI
-🚧 Task005 — Skill Mapping
+✅ Task005 — Resume Tailoring
 
 ---
 

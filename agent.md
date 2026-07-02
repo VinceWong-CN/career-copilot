@@ -393,3 +393,27 @@ Coding 完成不代表 Task 完成。
   - Preview
   - Continue Button
 ```
+
+## Route Naming Convention
+
+Each page must have a single responsibility.
+
+Current routes:
+
+/                 → Landing
+/master-resume    → Master Resume Upload
+/job              → Job Description Input
+/generate         → AI Match Analysis
+/result           → Match Analysis Result
+/resume           → Tailored Resume
+
+Do not merge multiple business responsibilities into a single page.
+
+When adding new features, prefer creating a new route instead of overloading an existing page.
+
+After every coding task:
+- Run `pnpm build` (must pass with zero errors).
+- Run `pnpm dev`.
+- Perform a manual self-check of the implemented flow.
+- Report the local test URL (http://localhost:xxxx).
+- Do not commit unless explicitly instructed by the Product Owner.

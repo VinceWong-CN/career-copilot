@@ -85,6 +85,15 @@ export default function ResultPage() {
           ))}
         </ul>
       </section>
+      <div className="text-center">
+        <button
+          onClick={() => router.push("/resume")}
+          className="rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground"
+        >
+          生成定制简历
+        </button>
+      </div>
+
 
       {SHOW_DEBUG_PANEL && (
         <details className="mt-12 rounded-md border p-4">
