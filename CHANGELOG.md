@@ -1,3 +1,5 @@
+ # 用户可见变更
+
 ### 2026-07-02 — Task005 Polish: Resume Output UX
 
 - Prompt 增加 Code Fence 约束（禁止 AI 包裹 markdown code block）
