@@ -1,5 +1,5 @@
 # Career Copilot
-
+# 该文档记录当前项目状态（动态）
 ## Current Stage
 
 V1 Polish
@@ -8,28 +8,28 @@ V1 Polish
 
 ## Current Sprint
 
-Sprint 1
+V1 Polish
 
 ---
 
 ## Goal
 
-Build the first usable Career Copilot.
+Prepare the Career Copilot MVP for V1 Release.
 
 ---
 
 ## Product Boundary
 
-Input
+
+### Input
 
 - Master Resume
 - Job Description
 
-Output
+### Output
 
-- Match Assessment
+- Match Analysis
 - Tailored Resume
-- Interview Package
 
 ---
 
@@ -47,7 +47,7 @@ Vercel
 
 ---
 
-## Current Task
+## Current Focus
 
 V1 Polish
 
@@ -69,21 +69,21 @@ Improve MVP quality before V1 Release.
 
 ### Goals
 
-- Improve Resume Markdown rendering
-- Remove Markdown code fences from AI output
-- Improve Resume Preview layout
-- Improve Copy UX
-- Remove Header navigation
-- Simplify Information Architecture (Workflow First)
+- Improve Resume output quality and readability
+- Polish Resume Preview experience
+- Simplify information architecture (Workflow First)
+- Remove unnecessary navigation elements
+- Improve overall user experience before V1 Release
 - Keep existing functionality unchanged
 
 ---
 
 ## Deferred
 
+
 - OCR Recovery
 - Resume Editor
-- Resume Export
+- Resume Export (PDF / DOCX)
 
 ---
 
@@ -115,3 +115,18 @@ Do not introduce features outside MVP.
 Keep implementation simple.
 
 Prioritize working software over perfect architecture.
+
+Each page must have a single responsibility.
+
+Workflow first, navigation second.
+
+## Next Milestone
+
+Release Candidate (RC1)
+
+Success Criteria
+
+- Complete V1 Polish
+- Pass full regression testing
+- Stable AI Resume generation
+- Ready for Beta testing

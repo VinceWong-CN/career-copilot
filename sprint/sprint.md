@@ -1,8 +1,7 @@
-# Sprint 1 — MVP Development
-
+# Sprint 1 — MVP is finished，now polishing
+# 文档记录当前迭代（动态）
 ## Goal
-Build a working Career Copilot MVP that supports full flow:
-Resume → JD → Analysis → Tailored Resume → Interview Package
+Complete the Career Copilot MVP and prepare it for V1 Release through product polish and stability improvements.
 
 ---
 
@@ -24,13 +23,12 @@ Status: Planned
 
 ### Goals
 
-- Polish Resume Markdown rendering
-- Remove Markdown code fence from AI output
-- Improve Resume Preview layout
-- Improve Copy UX
-- Remove Header navigation (Resume / Job / Result)
-- Simplify Information Architecture (Workflow First)
-- Keep all existing business logic unchanged
+- Improve Resume output quality and readability
+- Polish Resume Preview experience
+- Simplify information architecture (Workflow First)
+- Remove unnecessary navigation elements
+- Improve overall user experience before V1 Release
+- Keep existing functionality unchanged
 
 ### Acceptance Criteria
 
@@ -39,13 +37,15 @@ Status: Planned
 - No Context changes
 - pnpm build passes
 - pnpm dev verified
+- Resume Preview is production-ready
+- Workflow remains simple and intuitive
 
 ---
 
 ## Backlog
-- OCR（JD Screenshot Upload, Deferred）
-- Resume Rewrite
-- Resume Export
+- OCR Recovery
+- Resume Editor
+- Resume Export (PDF / DOCX)
 - Deployment
 
 ---
@@ -59,15 +59,21 @@ Status: Planned
 
 ---
 
-## Definition of Success (Sprint 1)
+## Definition of Success
 
-User can:
-- Upload resume
-- Paste JD
-- Receive result (even if AI is simple)
+Users can:
+
+- Upload a Master Resume
+- Input a Job Description
+- Receive AI Match Analysis
+- Generate a Tailored Resume
 
 ---
 
 ## Notes
 
-This sprint focuses on product flow validation, not AI accuracy.
+The MVP workflow is complete.
+
+The current focus is improving product quality,
+user experience,
+and release readiness.
