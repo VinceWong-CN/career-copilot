@@ -2,7 +2,7 @@
 
 ## Current Stage
 
-MVP Development
+V1 Polish
 
 ---
 
@@ -49,50 +49,62 @@ Vercel
 
 ## Current Task
 
-Sprint 1 Completed
-
-All MVP core tasks done. See Planned for future work.
+V1 Polish
 
 ---
 
-## Current MVP Progress
+## Completed
 
-✅ Task001 — Master Resume Upload
-✅ Task002 — Resume Parsing & Context
-✅ Task003 — JD Input
+✅ Task001 — Project Setup
+✅ Task002 — Master Resume Upload + Resume Parsing
+✅ Task003 — JD Input（OCR Deferred）
 ✅ Task004 — Match Analysis + Result UI
 ✅ Task005 — Resume Tailoring
 
 ---
 
-## Deferred
+## Current Focus
 
-- OCR（JD Screenshot Upload, 代码已保留，未接入）
+Improve MVP quality before V1 Release.
+
+### Goals
+
+- Improve Resume Markdown rendering
+- Remove Markdown code fences from AI output
+- Improve Resume Preview layout
+- Improve Copy UX
+- Remove Header navigation
+- Simplify Information Architecture (Workflow First)
+- Keep existing functionality unchanged
 
 ---
 
-## Planned
+## Deferred
 
-- Resume Rewrite
+- OCR Recovery
+- Resume Editor
 - Resume Export
 
 ---
 
-## Roadmap
+## Architecture Convention
 
-Master Resume
-↓
-Resume Parsing
-↓
-JD Input
-↓
-Match Analysis + Result UI
-↓
-Skill Mapping
-↓
-Resume Rewrite
-↓
-Resume Export
+### Workflow First
+
+Career Copilot is a workflow product, not a navigation product.
+
+The user journey is:
+
+Landing → Master Resume → Job → Generate (Match Analysis) → Result → Resume (Tailored Resume)
+
+Each page has a single responsibility.
+
+Avoid using top navigation such as:
+- Resume
+- Job
+- Result
+
+The workflow should be guided by page transitions and action buttons instead of navigation menus.
 
 ---
 

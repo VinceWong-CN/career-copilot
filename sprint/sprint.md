@@ -16,7 +16,29 @@ Resume → JD → Analysis → Tailored Resume → Interview Package
 - Task002 — Resume Parsing & Context
 - Task003 — JD Input
 - Task004 — Match Analysis + Result UI
-- Task005 — Resume Tailoring
+- Task005 — Resume Tailoring---
+
+## Sprint — V1 Polish
+
+Status: Planned
+
+### Goals
+
+- Polish Resume Markdown rendering
+- Remove Markdown code fence from AI output
+- Improve Resume Preview layout
+- Improve Copy UX
+- Remove Header navigation (Resume / Job / Result)
+- Simplify Information Architecture (Workflow First)
+- Keep all existing business logic unchanged
+
+### Acceptance Criteria
+
+- No business logic changes
+- No API changes
+- No Context changes
+- pnpm build passes
+- pnpm dev verified
 
 ---
 
